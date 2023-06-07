@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mvvm/utils/utils.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,8 +13,14 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Center(child: Text('home screen')),
+          Center(
+              child: ElevatedButton(
+                  onPressed: () {
+                    Utils.flushBarErrorMessage('Hello Flutter', context);
+                  },
+                  child: Text('home screen'))),
         ],
       ),
     );

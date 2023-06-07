@@ -5,7 +5,7 @@ import 'package:flutter_mvvm/data/app_exception.dart';
 import 'package:flutter_mvvm/data/network/base_api_service.dart';
 import 'package:http/http.dart' as http;
 
-class NerworkApiScrvice extends BaseApiService {
+class NetworkApiService extends BaseApiService {
   @override
   Future getGetApiResponse(String url) async {
     dynamic responseJson;
@@ -22,13 +22,13 @@ class NerworkApiScrvice extends BaseApiService {
   }
 
   @override
-  Future getPostApiResponse(String url,dynamic data) async {
+  Future getPostApiResponse(String url, dynamic data) async {
     dynamic responseJson;
     try {
       final response = await http
           .post(
             Uri.parse(url),
-          body: data,
+            body: data,
           )
           .timeout(const Duration(seconds: 10));
 
