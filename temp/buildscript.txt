@@ -1,0 +1,56 @@
+#!/bin/bash
+#csshetty
+# shellcheck disable=SC2028
+echo  -e 'Enter the environment:\n1: temp-dev\n2: xxxx-Dev\n3: xxxx-Uat\n4: xxxx-Prod'
+# shellcheck disable=SC2162
+read ENV
+
+case $ENV in
+   "1")
+       cp -r ./enviromentFolder/temp-dev/app ./android
+       cp ./enviromentFolder/temp-dev/build.gradle ./android
+       cp -r ./enviromentFolder/temp-dev/ios ./
+       cp ./enviromentFolder/temp-dev/remote_request.dart ./lib/data/remote/
+       cp ./enviromentFolder/temp-dev/firebase_options.dart ./lib
+      ;;
+   "2")
+       cp -r ./enviromentFolder/xxxx-dev/app ./android
+       cp ./enviromentFolder/xxxx-dev/build.gradle ./android
+       cp -r ./enviromentFolder/xxxx-dev/ios ./
+       cp ./enviromentFolder/xxxx-dev/remote_request.dart ./lib/data/remote/
+       cp ./enviromentFolder/xxxx-dev/firebase_options.dart ./lib
+       ;;
+   "3")
+      cp -r ./enviromentFolder/xxxx-uat/app ./android
+      cp ./enviromentFolder/xxxx-uat/build.gradle ./android
+      cp -r ./enviromentFolder/xxxx-uat/ios ./
+      cp ./enviromentFolder/xxxx-uat/remote_request.dart ./lib/data/remote/
+      cp ./enviromentFolder/xxxx-uat/firebase_options.dart ./lib
+       ;;
+   "4")
+       cp -r ./enviromentFolder/xxxx-prod/app ./android
+       cp ./enviromentFolder/xxxx-prod/build.gradle ./android
+       cp -r ./enviromentFolder/xxxx-prod/ios ./
+       cp ./enviromentFolder/xxxx-prod/remote_request.dart ./lib/data/remote/
+       cp ./enviromentFolder/xxxx-prod/firebase_options.dart ./lib
+      ;;
+   *)
+     Default echo -n "Invalid entry"
+     exit 0;
+     ;;
+esac
+
+echo -n "you want to build [ios,apk]:"
+# shellcheck disable=SC2162
+read BUILD
+
+echo -n "Building $BUILD App for $ENV environment.."
+
+
+echo -n "Select you Build Type[release,debug]:"
+# shellcheck disable=SC2162
+read BUILDTYPE
+
+flutter clean
+flutter build "$BUILD" "--$BUILDTYPE"
+flutter run "--$BUILDTYPE"
