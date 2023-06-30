@@ -13,8 +13,10 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  TextEditingController _emailController =
+      TextEditingController(text: 'eve.holt@reqres.in');
+  TextEditingController _passwordController =
+      TextEditingController(text: 'cityslicka');
   FocusNode _emailFocusNode = FocusNode();
   FocusNode _passwordFocusNode = FocusNode();
 
@@ -47,7 +49,7 @@ class _LoginViewState extends State<LoginView> {
               Utils.fieldFocusChange(
                   context, _emailFocusNode, _passwordFocusNode);
             },
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Email',
               hintText: 'Enter Email',
               prefixIcon: Icon(Icons.mail_outline),

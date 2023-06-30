@@ -10,10 +10,11 @@ class SplashServices {
 
   void checkAuthentication(BuildContext context) {
     getUserData().then((value) {
-      if (value.token == null || value.token == '') {
-        Navigator.of(context).pushNamed(RoutesName.login);
+      log('token---->${value.token}');
+      if (value.token == null || value.token == '' || value.token == 'null') {
+        Navigator.of(context).pushReplacementNamed(RoutesName.login);
       } else {
-        Navigator.of(context).pushNamed(RoutesName.home);
+        Navigator.of(context).pushReplacementNamed(RoutesName.home);
       }
     }).onError((error, stackTrace) {
       log('error--->$error');
