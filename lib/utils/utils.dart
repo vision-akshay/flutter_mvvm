@@ -13,15 +13,15 @@ class Utils {
       context: context,
       flushbar: Flushbar(
         forwardAnimationCurve: Curves.decelerate,
-        margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        padding: EdgeInsets.all(15),
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding: const EdgeInsets.all(15),
         message: message,
-        duration: Duration(seconds: 3),
+        duration: const Duration(seconds: 3),
         // flushbarPosition: FlushbarPosition.TOP,
         backgroundColor: Colors.red,
         reverseAnimationCurve: Curves.easeInOut,
         positionOffset: 20,
-        icon: Icon(Icons.error, size: 28, color: Colors.white),
+        icon: const Icon(Icons.error, size: 28, color: Colors.white),
       )..show(context), // Flushbar
     );
   }
@@ -36,5 +36,17 @@ class Utils {
       BuildContext context, FocusNode current, FocusNode nextFocus) {
     current.unfocus();
     FocusScope.of(context).requestFocus(nextFocus);
+  }
+
+  static double averageRating(List<int> rating) {
+    try {
+      var avgRating = 0;
+      for (var i = 0; i < rating.length; i++) {
+        avgRating += rating[i];
+      }
+      return avgRating / rating.length;
+    } catch (e) {
+      return 0.0;
+    }
   }
 }

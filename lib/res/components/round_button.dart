@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_mvvm/res/app_colors.dart';
 
 class RoundButton extends StatelessWidget {
@@ -21,11 +19,11 @@ class RoundButton extends StatelessWidget {
       child: Container(
         height: 40,
         width: 200,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: AppColor.buttonColor,
         ), // BoxDecoration
         child: Center(
-            child: loading ? CircularProgressIndicator() : Text('$title')),
+            child: loading ? const CircularProgressIndicator() :  Text(title)),
       ), // Container
     );
   }

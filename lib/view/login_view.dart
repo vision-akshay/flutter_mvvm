@@ -66,7 +66,7 @@ class _LoginViewState extends State<LoginView> {
                   decoration: InputDecoration(
                     labelText: 'Password',
                     hintText: 'Enter Password',
-                    prefixIcon: Icon(Icons.lock_open_rounded),
+                    prefixIcon: const Icon(Icons.lock_open_rounded),
                     suffixIcon: InkWell(
                         onTap: () {
                           _obsecurePassword.value = !_obsecurePassword.value;

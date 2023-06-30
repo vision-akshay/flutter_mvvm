@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         .pushReplacementNamed(RoutesName.splash);
                   });
                 },
-                icon: Icon(Icons.power_settings_new))
+                icon: const Icon(Icons.power_settings_new))
           ],
         ),
         body: ChangeNotifierProvider<HomeViewModel>(
@@ -73,6 +73,21 @@ class _HomeScreenState extends State<HomeScreen> {
                                     Icons.error_outline,
                                     color: Colors.red,
                                   ),
+                                  height: 40,
+                                  width: 40,
+                                  fit: BoxFit.cover,
+                                ),
+                                trailing: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(Utils.averageRating(value.moviesList
+                                            .data!.movies![index].ratings!)
+                                        .toStringAsFixed(1)),
+                                    const Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                    )
+                                  ],
                                 ),
                               ),
                             ));

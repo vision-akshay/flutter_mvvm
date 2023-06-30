@@ -12,7 +12,6 @@ class _SplashScreenState extends State<SplashScreen> {
   SplashServices _splashServices = SplashServices();
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     _splashServices.checkAuthentication(context);
@@ -23,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        children: const [
           Center(child: Text('splash screen')),
         ],
       ),

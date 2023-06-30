@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mvvm/res/components/round_button.dart';
-import 'package:flutter_mvvm/utils/routes/routes_name.dart';
 import 'package:flutter_mvvm/utils/utils.dart';
 import 'package:flutter_mvvm/view-model/auth_view_model.dart';
 import 'package:provider/provider.dart';
@@ -13,7 +12,7 @@ class SignupView extends StatefulWidget {
 }
 
 class _SignupViewState extends State<SignupView> {
-  TextEditingController _emailController = TextEditingController();
+   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   FocusNode _emailFocusNode = FocusNode();
   FocusNode _passwordFocusNode = FocusNode();
@@ -47,7 +46,7 @@ class _SignupViewState extends State<SignupView> {
               Utils.fieldFocusChange(
                   context, _emailFocusNode, _passwordFocusNode);
             },
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Email',
               hintText: 'Enter Email',
               prefixIcon: Icon(Icons.mail_outline),
@@ -64,7 +63,7 @@ class _SignupViewState extends State<SignupView> {
                   decoration: InputDecoration(
                     labelText: 'Password',
                     hintText: 'Enter Password',
-                    prefixIcon: Icon(Icons.lock_open_rounded),
+                    prefixIcon: const Icon(Icons.lock_open_rounded),
                     suffixIcon: InkWell(
                         onTap: () {
                           _obsecurePassword.value = !_obsecurePassword.value;
@@ -92,7 +91,7 @@ class _SignupViewState extends State<SignupView> {
                     Utils.flushBarErrorMessage(
                         'Please enter 6 digit password', context);
                   } else {
-                    print('api hit');
+                    debugPrint('api hit');
 
                     Map data = {
                       'email': _emailController.text.toString(),
